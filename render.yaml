@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: garmin-mcp
+    runtime: docker
+    plan: starter        # il disco persistente richiede un piano a pagamento
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_PASSWORD
+        sync: false      # te la chiede Render al primo deploy
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: garmin-data
+      mountPath: /data
+      sizeGB: 1
