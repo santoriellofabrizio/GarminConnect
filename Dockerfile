@@ -10,6 +10,5 @@ COPY src ./src
 RUN uv sync --frozen --no-dev
 
 ENV MCP_TRANSPORT=http DATA_DIR=/data PORT=8000
-VOLUME ["/data"]
 EXPOSE 8000
 CMD ["/app/.venv/bin/garmin-mcp"]
